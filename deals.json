@@ -10,5 +10,11 @@
         "amount": 1800,
         "parties": ["ckup", "st6nt"],
         "status": "Completed"
+    },
+    {
+        "type": "Account MM",
+        "amount": 200,
+        "parties": ["lixf", "s8ru"],
+        "status": "Completed"
     }
 ]
