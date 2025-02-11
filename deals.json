@@ -1,0 +1,14 @@
+[
+    {
+        "type": "Account MM",
+        "amount": 200,
+        "parties": ["ddos1", "9fq"],
+        "status": "Completed"
+    },
+    {
+        "type": "Crypto MM",
+        "amount": 1800,
+        "parties": ["ckup", "st6nt"],
+        "status": "Completed"
+    }
+]
