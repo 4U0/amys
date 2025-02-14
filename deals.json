@@ -22,5 +22,11 @@
         "amount": 300,
         "parties": ["km5", "telamom"],
         "status": "Completed"
+    },
+    {
+        "type": "Account/Crypto MM",
+        "amount": 135,
+        "parties": ["lixf", "s8ru"],
+        "status": "Completed"
     }
 ]
