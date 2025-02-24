@@ -28,5 +28,11 @@
         "amount": 135,
         "parties": ["lixf", "s8ru"],
         "status": "Completed"
+    },
+    {
+        "type": "Crypto MM",
+        "amount": 1100,
+        "parties": ["km5", "hahahahahhhahahha"],
+        "status": "Completed"
     }
 ]
