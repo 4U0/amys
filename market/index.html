@@ -3,35 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amy Marketplace</title>
+    <title>Elite Roblox Accounts | Premium Verified Profiles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00a2ff;
-            --secondary: #ebebeb;
-            --accent: #ff4500;
-            --dark: #1a1a1a;
-            --light: #ffffff;
+            --primary: #6C5CE7;
+            --secondary: #A8A5E6;
+            --accent: #FF7675;
+            --dark: #1A1A24;
+            --light: #FFFFFF;
+            --gradient: linear-gradient(135deg, #6C5CE7 0%, #84A9FF 100%);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background: var(--secondary);
-            color: var(--dark);
+            background: #0F0F1A;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), #0066cc);
-            color: white;
-            padding: 2rem;
+            background: var(--dark);
+            padding: 4rem 2rem 6rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--gradient);
+            transform: skewY(-3deg);
+            z-index: 0;
         }
 
         .categories-nav {
@@ -39,118 +54,211 @@
             justify-content: center;
             gap: 1rem;
             padding: 1rem;
-            background: white;
             flex-wrap: wrap;
+            max-width: 1200px;
+            margin: -2rem auto 3rem;
+            position: relative;
+            z-index: 1;
         }
 
         .category-btn {
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 25px;
-            background: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
 
         .category-btn.active,
         .category-btn:hover {
             background: var(--primary);
+            border-color: var(--primary);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(108, 92, 231, 0.3);
         }
 
         .products-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             padding: 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .product-card {
-            background: white;
-            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108,92,231,0.1) 0%, rgba(108,92,231,0) 70%);
+            transform: translate(25%, 25%);
         }
 
         .product-card:hover {
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
         }
 
         .product-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .product-price {
             color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .features-list {
-            list-style: none;
-            margin: 1rem 0;
-        }
-
-        .features-list li {
-            margin: 0.5rem 0;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
+        .product-price::before {
+            content: '🟢';
+            font-size: 0.8em;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .features-list li {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .features-list i {
+            color: var(--primary);
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: rgba(108, 92, 231, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         footer {
             background: var(--dark);
-            color: white;
+            color: rgba(255, 255, 255, 0.7);
             text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
+            padding: 4rem 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .loading {
             text-align: center;
-            padding: 2rem;
+            padding: 4rem;
             font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
         }
 
         @media (max-width: 768px) {
-            .products-container {
-                grid-template-columns: 1fr;
-                padding: 1rem;
+            h1 {
+                font-size: 2rem;
             }
+            
+            .products-container {
+                padding: 1rem;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Roblox Accounts</h1>
-        <p>Accounts with Rare Items and Other Stuff</p>
+        <h1>Amy Market</h1>
+        <p>Roblox accs and some other stuff man idk</p>
     </header>
 
     <nav class="categories-nav">
-        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn active" data-category="all">All Accounts</button>
+        <button class="category-btn" data-category="offsale">Offsales</button>
         <button class="category-btn" data-category="3l3c">3L & 3C</button>
-        <button class="category-btn" data-category="limited">Limited</button>
         <button class="category-btn" data-category="names">Names</button>
     </nav>
 
     <div class="products-container" id="productsContainer">
-        <div class="loading">Loading Roblox accounts...</div>
+        <div class="loading">Loading premium accounts...</div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Amy Market. All rights reserved.</p>
-        <p>Accounts | Secure Transactions | 24/7 Support</p>
+        <p>&copy; 2025 Amy Roblox Accounts. All rights reserved.</p>
     </footer>
 
     <script>
+        // accounts.json data example:
+        /*
+        [
+            {
+                "name": "Korblox Deathspeaker Account",
+                "price": 499.99,
+                "category": "limited",
+                "image": "assets/account1.jpg",
+                "description": "Exclusive account featuring legendary Korblox items with full animation set",
+                "features": [
+                    "2007 Limited Badge",
+                    "Korblox Deathspeaker",
+                    "10+ Limited UGCs",
+                    "OG Username"
+                ]
+            },
+            ...
+        ]
+        */
+
         const ACCOUNTS_URL = 'https://amy.coffee/market/accounts.json';
 
         async function loadAccounts() {
@@ -161,18 +269,23 @@
                 const container = document.getElementById('productsContainer');
                 container.innerHTML = '';
 
-                accounts.forEach(account => {
+                accounts.forEach((account, index) => {
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     card.dataset.category = account.category;
-                    
+                    card.style.animation = `fadeIn 0.5s ease ${index * 0.1}s forwards`;
+                    card.style.opacity = '0';
+
                     card.innerHTML = `
                         <img src="${account.image}" alt="${account.name}" class="product-image">
                         <h3>${account.name}</h3>
-                        <div class="product-price">$${account.price}</div>
+                        <div class="product-price">$${account.price.toFixed(2)}</div>
                         <ul class="features-list">
                             ${account.features.map(feature => `
-                                <li><i class="fas fa-check"></i>${feature}</li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    ${feature}
+                                </li>
                             `).join('')}
                         </ul>
                         <p>${account.description}</p>
@@ -184,8 +297,11 @@
                 initCategoryFilter();
             } catch (error) {
                 console.error('Error loading accounts:', error);
-                document.getElementById('productsContainer').innerHTML = 
-                    '<div class="error">Error loading accounts. Please try again later.</div>';
+                container.innerHTML = `
+                    <div class="error" style="text-align: center; color: var(--accent); padding: 4rem;">
+                        Failed to load accounts. Please refresh the page.
+                    </div>
+                `;
             }
         }
 
@@ -201,17 +317,15 @@
                     const category = btn.dataset.category;
                     
                     productCards.forEach(card => {
-                        if(category === 'all' || card.dataset.category === category) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
+                        card.style.display = category === 'all' || card.dataset.category === category 
+                            ? 'block' 
+                            : 'none';
                     });
                 });
             });
         }
 
-        loadAccounts();
+        window.addEventListener('DOMContentLoaded', loadAccounts);
     </script>
 </body>
 </html>
