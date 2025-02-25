@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Ghost Fedora",
+        "price": 10,
+        "category": "offsale",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg",
+        "description": "Ghost Fed acc with ",
+        "features": [
+            "Ghost Fedora",
+            "Spiderman Bundle"
+        ]
+    },
+    {
+        "name": "@f1e",
+        "price": 75,
+        "category": "3l3c",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg",
+        "description": "2014 - Unverified - No Billing",
+        "features": [
+            "Fresh Hit",
+            "CO: $60"
+        ]
+    },
+    {
+        "name": "@GoldRoger",
+        "price": 100,
+        "category": "names",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg",
+        "description": "Unverified + No Billing",
+        "features": [
+            "One Piece Namesnipe",
+            "CO: none"
+        ]
+    }
+]
