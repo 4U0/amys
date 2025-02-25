@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amy Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00a2ff;
+            --secondary: #ebebeb;
+            --accent: #ff4500;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #0066cc);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .categories-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            background: var(--secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .features-list li {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .products-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Roblox Accounts</h1>
+        <p>Accounts with Rare Items and Other Stuff</p>
+    </header>
+
+    <nav class="categories-nav">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="3l3c">3L & 3C</button>
+        <button class="category-btn" data-category="limited">Limited</button>
+        <button class="category-btn" data-category="names">Names</button>
+    </nav>
+
+    <div class="products-container" id="productsContainer">
+        <div class="loading">Loading Roblox accounts...</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Amy Market. All rights reserved.</p>
+        <p>Accounts | Secure Transactions | 24/7 Support</p>
+    </footer>
+
+    <script>
+        const ACCOUNTS_URL = 'accounts.json';
+
+        async function loadAccounts() {
+            try {
+                const response = await fetch(ACCOUNTS_URL);
+                const accounts = await response.json();
+                
+                const container = document.getElementById('productsContainer');
+                container.innerHTML = '';
+
+                accounts.forEach(account => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.dataset.category = account.category;
+                    
+                    card.innerHTML = `
+                        <img src="${account.image}" alt="${account.name}" class="product-image">
+                        <h3>${account.name}</h3>
+                        <div class="product-price">$${account.price}</div>
+                        <ul class="features-list">
+                            ${account.features.map(feature => `
+                                <li><i class="fas fa-check"></i>${feature}</li>
+                            `).join('')}
+                        </ul>
+                        <p>${account.description}</p>
+                    `;
+                    
+                    container.appendChild(card);
+                });
+
+                initCategoryFilter();
+            } catch (error) {
+                console.error('Error loading accounts:', error);
+                document.getElementById('productsContainer').innerHTML = 
+                    '<div class="error">Error loading accounts. Please try again later.</div>';
+            }
+        }
+
+        function initCategoryFilter() {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const category = btn.dataset.category;
+                    
+                    productCards.forEach(card => {
+                        if(category === 'all' || card.dataset.category === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        loadAccounts();
+    </script>
+</body>
+</html>
