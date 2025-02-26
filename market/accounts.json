@@ -14,7 +14,7 @@
     },
     {
         "name": "@f1e",
-        "price": 75,
+        "price": 60.0,
         "category": "3l3c",
         "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
         "description": "",
@@ -53,7 +53,7 @@
     },
     {
         "name": "@Numerously",
-        "price": 40.0,
+        "price": 25.0,
         "category": "names",
         "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
         "description": "",
