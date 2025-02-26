@@ -107,7 +107,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(108,92,231,0.1) 0%, rgba(108,92,231,0) 70%);
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.1) 0%, rgba(108, 92, 231, 0) 70%);
             transform: translate(25%, 25%);
         }
 
@@ -115,6 +115,7 @@
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.05);
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
         }
 
         .product-image {
@@ -176,10 +177,26 @@
         }
 
         .loading {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 4rem;
-            font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.6);
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         h1 {
@@ -201,13 +218,18 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            header {
+                padding: 2rem 1rem 4rem;
             }
-            
+            .category-btn {
+                padding: 0.6rem 1.2rem;
+            }
             .products-container {
                 padding: 1rem;
                 grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
             }
         }
 
@@ -224,14 +246,17 @@
     </header>
 
     <nav class="categories-nav">
-        <button class="category-btn active" data-category="all">All Accounts</button>
-        <button class="category-btn" data-category="offsale">Offsales</button>
-        <button class="category-btn" data-category="3l3c">3L & 3C</button>
-        <button class="category-btn" data-category="names">Names</button>
+        <button class="category-btn active" data-category="all" aria-label="Show all accounts"><i class="fas fa-th"></i> All Accounts</button>
+        <button class="category-btn" data-category="offsale" aria-label="Show offsale accounts"><i class="fas fa-tag"></i> Offsales</button>
+        <button class="category-btn" data-category="3l3c" aria-label="Show 3L and 3C accounts"><i class="fas fa-text-width"></i> 3L & 3C</button>
+        <button class="category-btn" data-category="names" aria-label="Show named accounts"><i class="fas fa-user"></i> Names</button>
     </nav>
 
     <div class="products-container" id="productsContainer">
-        <div class="loading">Loading premium accounts...</div>
+        <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading premium accounts...</p>
+        </div>
     </div>
 
     <footer>
@@ -239,36 +264,19 @@
     </footer>
 
     <script>
-        // accounts.json data example:
-        /*
-        [
-            {
-                "name": "Korblox Deathspeaker Account",
-                "price": 499.99,
-                "category": "limited",
-                "image": "assets/account1.jpg",
-                "description": "Exclusive account featuring legendary Korblox items with full animation set",
-                "features": [
-                    "2007 Limited Badge",
-                    "Korblox Deathspeaker",
-                    "10+ Limited UGCs",
-                    "OG Username"
-                ]
-            },
-            ...
-        ]
-        */
-
         const ACCOUNTS_URL = 'https://amy.coffee/market/accounts.json';
 
         async function loadAccounts() {
+            const container = document.getElementById('productsContainer');
             try {
                 const response = await fetch(ACCOUNTS_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const accounts = await response.json();
                 
-                const container = document.getElementById('productsContainer');
                 container.innerHTML = '';
-
+                
                 accounts.forEach((account, index) => {
                     const card = document.createElement('div');
                     card.className = 'product-card';
@@ -277,7 +285,7 @@
                     card.style.opacity = '0';
 
                     card.innerHTML = `
-                        <img src="${account.image}" alt="${account.name}" class="product-image">
+                        <img src="${account.image}" alt="${account.name}" class="product-image" loading="lazy">
                         <h3>${account.name}</h3>
                         <div class="product-price">$${account.price.toFixed(2)}</div>
                         <ul class="features-list">
@@ -299,7 +307,8 @@
                 console.error('Error loading accounts:', error);
                 container.innerHTML = `
                     <div class="error" style="text-align: center; color: var(--accent); padding: 4rem;">
-                        Failed to load accounts. Please refresh the page.
+                        <p>Failed to load accounts. Please check your connection and try again.</p>
+                        <button onclick="loadAccounts()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer;">Retry</button>
                     </div>
                 `;
             }
