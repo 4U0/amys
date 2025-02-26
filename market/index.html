@@ -54,7 +54,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Improved header design */
         header {
             background: var(--header-bg);
             padding: 6rem 2rem 8rem;
@@ -287,7 +286,6 @@
             justify-content: center;
         }
 
-        /* Improved footer */
         footer {
             background: var(--header-bg);
             color: var(--text-secondary);
@@ -363,7 +361,6 @@
             line-height: 1.8;
         }
 
-        /* Back to top button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -394,7 +391,6 @@
             box-shadow: 0 8px 20px rgba(108, 92, 231, 0.5);
         }
 
-        /* Search bar */
         .search-container {
             max-width: 600px;
             margin: 0 auto 2rem;
@@ -425,7 +421,6 @@
             opacity: 0.5;
         }
 
-        /* No results message */
         .no-results {
             grid-column: 1 / -1;
             text-align: center;
@@ -435,7 +430,6 @@
             border: 1px solid var(--card-border);
         }
 
-        /* Theme toggle button */
         .theme-toggle {
             position: absolute;
             top: 20px;
@@ -465,7 +459,6 @@
             color: white;
         }
 
-        /* Responsive styles */
         @media (max-width: 768px) {
             header {
                 padding: 4rem 1rem 6rem;
@@ -576,17 +569,14 @@
     <script>
         const ACCOUNTS_URL = 'https://amy.coffee/market/accounts.json';
 
-        // Theme toggle functionality
         const themeToggle = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
         const themeIcon = themeToggle.querySelector('i');
         
-        // Check for saved theme preference or use default
         const savedTheme = localStorage.getItem('theme') || 'dark';
         htmlElement.setAttribute('data-theme', savedTheme);
         updateThemeIcon(savedTheme);
 
-        // Toggle theme when button is clicked
         themeToggle.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -604,7 +594,6 @@
             }
         }
 
-        // Back to top button functionality
         const backToTopButton = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
@@ -622,7 +611,6 @@
             });
         });
 
-        // Search functionality
         const searchInput = document.getElementById('searchInput');
         
         searchInput.addEventListener('input', () => {
@@ -642,7 +630,6 @@
                 }
             });
             
-            // Show no results message if needed
             const noResultsElement = document.querySelector('.no-results');
             if (!hasResults && searchTerm !== '') {
                 if (!noResultsElement) {
@@ -713,7 +700,6 @@
 
             categoryBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Clear search when changing categories
                     searchInput.value = '';
                     
                     categoryBtns.forEach(b => b.classList.remove('active'));
@@ -727,7 +713,6 @@
                             : 'none';
                     });
                     
-                    // Remove no results message if it exists
                     const noResultsElement = document.querySelector('.no-results');
                     if (noResultsElement) {
                         noResultsElement.remove();
