@@ -3,33 +3,52 @@
         "name": "Ghost Fedora",
         "price": 10,
         "category": "offsale",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg",
-        "description": "Ghost Fed acc with ",
+        "image": "",
+        "description": "",
         "features": [
             "Ghost Fedora",
-            "Spiderman Bundle"
+            "Spiderman Bundle",
+            "Unverified",
+            "No Billing"
         ]
     },
     {
         "name": "@f1e",
         "price": 75,
         "category": "3l3c",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg",
-        "description": "2014 - Unverified - No Billing",
+        "image": "",
+        "description": "",
         "features": [
             "Fresh Hit",
-            "CO: $60"
+            "CO: $60",
+            "Unverified",
+            "No Billing",
         ]
     },
     {
         "name": "@GoldRoger",
         "price": 100,
         "category": "names",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg",
-        "description": "Unverified + No Billing",
+        "image": "",
+        "description": "'Gol D. Roger'",
         "features": [
             "One Piece Namesnipe",
-            "CO: none"
+            "CO: none",
+            "Unverified",
+            "No Billing"
+        ]
+    },
+    {
+        "name": "@Creeder",
+        "price": 30,
+        "category": "names",
+        "image": "",
+        "description": "Minecraft Story Mode Mob",
+        "features": [
+            "Clean",
+            "CO: 25",
+            "Unverified",
+            "No Billing"
         ]
     }
 ]
