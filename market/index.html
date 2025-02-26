@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,30 @@
             --gradient: linear-gradient(135deg, #6C5CE7 0%, #84A9FF 100%);
         }
 
+        html[data-theme="dark"] {
+            --bg-color: #0F0F1A;
+            --header-bg: #1A1A24;
+            --text-color: rgba(255, 255, 255, 0.9);
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --card-hover-bg: rgba(255, 255, 255, 0.05);
+            --input-bg: rgba(26, 26, 36, 0.8);
+            --input-border: rgba(255, 255, 255, 0.1);
+        }
+
+        html[data-theme="light"] {
+            --bg-color: #F5F7FA;
+            --header-bg: #FFFFFF;
+            --text-color: #333333;
+            --text-secondary: #666666;
+            --card-bg: #FFFFFF;
+            --card-border: #E5E9F0;
+            --card-hover-bg: #F9FAFC;
+            --input-bg: #FFFFFF;
+            --input-border: #E5E9F0;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -24,14 +48,15 @@
         }
 
         body {
-            background: #0F0F1A;
-            color: rgba(255, 255, 255, 0.9);
+            background: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
+            transition: background-color 0.3s ease;
         }
 
         /* Improved header design */
         header {
-            background: var(--dark);
+            background: var(--header-bg);
             padding: 6rem 2rem 8rem;
             text-align: center;
             position: relative;
@@ -49,8 +74,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.95));
+            background: linear-gradient(to bottom, 
+                rgba(15, 15, 26, 0.8), 
+                rgba(15, 15, 26, 0.95));
             z-index: 1;
+        }
+
+        html[data-theme="light"] header::before {
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.8), 
+                rgba(255, 255, 255, 0.95));
         }
 
         .header-content {
@@ -76,7 +109,7 @@
         .tagline {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
         }
 
         .header-cta {
@@ -118,7 +151,7 @@
 
         .stat-label {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -149,10 +182,10 @@
 
         .category-btn {
             padding: 0.8rem 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--card-border);
             border-radius: 12px;
-            background: rgba(26, 26, 36, 0.8);
-            color: rgba(255, 255, 255, 0.7);
+            background: var(--input-bg);
+            color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
@@ -178,10 +211,10 @@
         }
 
         .product-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--card-bg);
             border-radius: 16px;
             padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--card-border);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -200,8 +233,8 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+            background: var(--card-hover-bg);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
             border-color: var(--primary);
         }
 
@@ -211,7 +244,7 @@
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--card-border);
         }
 
         .product-price {
@@ -240,7 +273,7 @@
             align-items: center;
             gap: 0.8rem;
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
         }
 
         .features-list i {
@@ -256,12 +289,12 @@
 
         /* Improved footer */
         footer {
-            background: var(--dark);
-            color: rgba(255, 255, 255, 0.7);
+            background: var(--header-bg);
+            color: var(--text-secondary);
             text-align: center;
             padding: 4rem 2rem;
             margin-top: 6rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--card-border);
             position: relative;
         }
 
@@ -280,7 +313,7 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -295,11 +328,11 @@
             align-items: center;
             justify-content: center;
             padding: 4rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-secondary);
         }
 
         .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
+            border: 4px solid var(--card-border);
             border-left-color: var(--primary);
             border-radius: 50%;
             width: 40px;
@@ -326,7 +359,7 @@
         }
 
         p {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-secondary);
             line-height: 1.8;
         }
 
@@ -373,9 +406,9 @@
             width: 100%;
             padding: 1rem 1.5rem;
             border-radius: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            background: rgba(26, 26, 36, 0.8);
-            color: white;
+            border: 2px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
             font-size: 1rem;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
@@ -388,7 +421,8 @@
         }
 
         .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--text-secondary);
+            opacity: 0.5;
         }
 
         /* No results message */
@@ -396,9 +430,39 @@
             grid-column: 1 / -1;
             text-align: center;
             padding: 3rem;
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--card-bg);
             border-radius: 16px;
+            border: 1px solid var(--card-border);
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(26, 26, 36, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        html[data-theme="light"] .theme-toggle {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary);
+            color: white;
         }
 
         /* Responsive styles */
@@ -446,29 +510,6 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Dark mode toggle */
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-            background: rgba(26, 26, 36, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background: var(--primary);
-        }
     </style>
 </head>
 <body>
@@ -477,7 +518,30 @@
             <i class="fas fa-moon"></i>
         </button>
         <div class="header-content">
+            <h1 class="logo">Amy Market</h1>
+            <p class="tagline">Premium Roblox accounts and collectibles</p>
+            <a href="#productsContainer" class="header-cta">Browse Accounts</a>
+            
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Accounts Sold</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Secure Transactions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Customer Support</div>
+                </div>
+            </div>
+        </div>
     </header>
+
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search accounts by name, features or category..." aria-label="Search accounts">
+    </div>
 
     <nav class="categories-nav">
         <button class="category-btn active" data-category="all" aria-label="Show all accounts"><i class="fas fa-th"></i> All Accounts</button>
@@ -493,12 +557,107 @@
         </div>
     </div>
 
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <footer>
-        <p>&copy; 2025 Amy Roblox Accounts. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+            </div>
+            <p>&copy; 2025 Amy Roblox Accounts. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
         const ACCOUNTS_URL = 'https://amy.coffee/market/accounts.json';
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use default
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        // Toggle theme when button is clicked
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const productCards = document.querySelectorAll('.product-card');
+            let hasResults = false;
+            
+            productCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                const cardCategory = card.dataset.category;
+                
+                if (cardText.includes(searchTerm) || (cardCategory && cardCategory.includes(searchTerm))) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show no results message if needed
+            const noResultsElement = document.querySelector('.no-results');
+            if (!hasResults && searchTerm !== '') {
+                if (!noResultsElement) {
+                    const noResults = document.createElement('div');
+                    noResults.className = 'no-results';
+                    noResults.innerHTML = `
+                        <h3>No accounts found</h3>
+                        <p>We couldn't find any accounts matching "${searchTerm}"</p>
+                    `;
+                    document.getElementById('productsContainer').appendChild(noResults);
+                }
+            } else if (noResultsElement) {
+                noResultsElement.remove();
+            }
+        });
 
         async function loadAccounts() {
             const container = document.getElementById('productsContainer');
@@ -554,6 +713,9 @@
 
             categoryBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
+                    // Clear search when changing categories
+                    searchInput.value = '';
+                    
                     categoryBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     
@@ -564,6 +726,12 @@
                             ? 'block' 
                             : 'none';
                     });
+                    
+                    // Remove no results message if it exists
+                    const noResultsElement = document.querySelector('.no-results');
+                    if (noResultsElement) {
+                        noResultsElement.remove();
+                    }
                 });
             });
         }
