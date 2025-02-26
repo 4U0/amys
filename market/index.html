@@ -216,7 +216,6 @@
             margin: 0 auto;
         }
 
-        /* Redesigned product cards for a more sleek and professional look */
         .product-card {
             background: var(--card-bg);
             border-radius: 16px;
@@ -531,7 +530,6 @@
             opacity: 0.5;
         }
 
-        /* No results message */
         .no-results {
             grid-column: 1 / -1;
             text-align: center;
@@ -542,7 +540,6 @@
             box-shadow: var(--card-shadow);
         }
 
-        /* Theme toggle button */
         .theme-toggle {
             position: absolute;
             top: 20px;
@@ -572,7 +569,6 @@
             color: white;
         }
 
-        /* Badge for special items */
         .special-badge {
             position: absolute;
             top: 15px;
@@ -588,7 +584,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Responsive styles */
         @media (max-width: 768px) {
             header {
                 padding: 4rem 1rem 6rem;
@@ -677,7 +672,7 @@
     <div class="products-container" id="productsContainer">
         <div class="loading">
             <div class="spinner"></div>
-            <p>Loading premium accounts...</p>
+            <p>Loading accounts...</p>
         </div>
     </div>
 
@@ -819,9 +814,9 @@
                             </ul>
                             <p class="product-description">${account.description}</p>
                             <div class="product-footer">
-                                <button class="buy-now-btn">
+                                <button class="buy-now-btn", href="https://discordlookup.com/user/692399152423895042">
                                     <i class="fas fa-shopping-cart"></i>
-                                    Buy Now
+                                    Contact Us
                                 </button>
                                 <div class="product-meta">
                                     <span><i class="fas fa-eye"></i> ${Math.floor(Math.random() * 100) + 10}</span>
