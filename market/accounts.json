@@ -62,41 +62,5 @@
             "Unverified",
             "No Billing"
         ]
-    },
-    {
-        "name": "@DMNT",
-        "price": 6.0,
-        "category": "names",
-        "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
-        "description": "",
-        "features": [
-            "Clean 4 Letter",
-            "Unverified",
-            "No Billing"
-        ]
-    },
-    {
-        "name": "@DonV",
-        "price": 7.0,
-        "category": "names",
-        "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
-        "description": "",
-        "features": [
-            "Clean 4L",
-            "Unverified",
-            "No Billing"
-        ]
-    },
-    {
-        "name": "@Qaus",
-        "price": 6.0,
-        "category": "names",
-        "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
-        "description": "",
-        "features": [
-            "Clean 4L",
-            "Unverified",
-            "No Billing"
-        ]
     }
 ]
