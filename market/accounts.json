@@ -69,5 +69,16 @@
             "1x Full Moon Egg",
             "1x Tiger Egg"
         ]
+    },
+    {
+        "name": "Festive Valk",
+        "price": 30.0,
+        "category": "other",
+        "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
+        "description": "Unverified + No billing",
+        "features": [
+            "Nice name",
+            "Festive Valk + Festive Pickaxe"
+        ]
     }
 ]
