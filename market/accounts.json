@@ -1,18 +1,5 @@
 [
     {
-        "name": "Ghost Fedora",
-        "price": 10,
-        "category": "offsale",
-        "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
-        "description": "",
-        "features": [
-            "Ghost Fedora",
-            "Spiderman Bundle",
-            "Unverified",
-            "No Billing"
-        ]
-    },
-    {
         "name": "@f1e",
         "price": 60.0,
         "category": "3l3c",
