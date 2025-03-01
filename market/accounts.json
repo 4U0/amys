@@ -1,18 +1,5 @@
 [
     {
-        "name": "@f1e",
-        "price": 60.0,
-        "category": "3l3c",
-        "image": "https://cdn.buttercms.com/ORMyMISWTDas1y0KNm0j",
-        "description": "",
-        "features": [
-            "Fresh Hit",
-            "CO: ",
-            "Unverified",
-            "No Billing"
-        ]
-    },
-    {
         "name": "@GoldRoger",
         "price": 100,
         "category": "names",
